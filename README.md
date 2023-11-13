@@ -10,6 +10,10 @@ To integrate ChatGPT into your project, follow the steps outlined in the [OpenAI
 
 For detailed API reference and endpoint documentation, consult the [ChatGPT API Reference](https://platform.openai.com/docs/api-reference/chat).
 
+## Sample Code
+
+Explore sample code and examples in the [Building AI Applications with ChatGPT APIs](https://github.com/PacktPublishing/Building-AI-Applications-with-ChatGPT-APIs/tree/main) repository. These examples demonstrate practical applications of the ChatGPT API.
+
 ## More Information
 
 For additional details, including usage examples, API key setup, and best practices, visit the official [OpenAI Python library repository](https://github.com/openai/openai-python).
