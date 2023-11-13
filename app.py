@@ -9,7 +9,6 @@ question = input("What would you like to ask ChatGPT? ")
 response = client.chat.completions.create(
     model = "gpt-3.5-turbo",
     messages = [{"role": "user", "content": question}],
-    engine="text-davinci-003",
     max_tokens=1024,
     n=1,
     stop=None,
