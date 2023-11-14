@@ -43,7 +43,7 @@ dependencies:
   - typing-extensions=4.8.0=hd8ed1ab_0
   - typing_extensions=4.8.0=pyha770c72_0
   - tzdata=2023c=h71feb2d_0
-  - werkzeug=3.0.1=pyhd8ed1ab_0
+  - werkzeug=2.2.2
   - wheel=0.41.3=pyhd8ed1ab_0
   - xz=5.2.6=h57fd34a_0
   - pip:
