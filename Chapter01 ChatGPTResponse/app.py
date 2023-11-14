@@ -9,7 +9,7 @@ def clear_screen():
 clear_screen()
 
 client = OpenAI(
-    api_key = "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",
+    api_key = "",
 )
 
 question = input("What would you like to ask ChatGPT? ")
