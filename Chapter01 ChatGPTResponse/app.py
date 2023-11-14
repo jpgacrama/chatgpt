@@ -1,6 +1,6 @@
 from openai import OpenAI
 import os
-import json  # Import the json module
+import config
 
 def clear_screen():
     # Clear the screen based on the operating system
@@ -9,7 +9,7 @@ def clear_screen():
 clear_screen()
 
 client = OpenAI(
-    api_key = "",
+    api_key = config.API_KEY,
 )
 
 question = input("What would you like to ask ChatGPT? ")
@@ -21,9 +21,3 @@ response = client.chat.completions.create(
     stop = None,
     temperature = 0.8,
 )
-
-# Convert the response to JSON format
-response_json = json.dumps(response, indent=2)
-
-# Print the JSON-formatted response
-print(response_json)
