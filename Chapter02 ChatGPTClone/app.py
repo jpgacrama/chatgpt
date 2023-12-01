@@ -24,15 +24,18 @@ def index():
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
+    messages=[
+        {"role": "user", "content": userText},
+    ]
     response = client.chat.completions.create(
-        engine="text-davinci-003",
-        prompt=userText,
+        model="gpt-3.5-turbo",
+        messages=messages,
         max_tokens=1024,
         n=1,
         stop=None,
         temperature=1,
     )
-    answer = response["choices"][0]["text"]
+    answer=response.choices[0].message.content
     return str(answer)
 
 if __name__ == "__main__":

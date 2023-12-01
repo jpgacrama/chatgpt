@@ -50,5 +50,15 @@
             </span>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $("#submit").click(function(){
+            var userInput = $("#userInput").val();
+            $.get("/get?msg=" + userInput, function(data){
+                $("#chat").append("<li class='list-group-item'><b>You:</b> " + userInput + "</li>");
+                $("#chat").append("<li class='list-group-item'><b>OpenAI:</b> " + data + "</li>");
+            });
+        });
+    </script>
 </body>
 </html>
