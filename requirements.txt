@@ -1,0 +1,56 @@
+alabaster==0.7.13
+annotated-types @ file:///home/conda/feedstock_root/build_artifacts/annotated-types_1696634205638/work
+anyio @ file:///home/conda/feedstock_root/build_artifacts/anyio_1688651106312/work/dist
+attrs==23.1.0
+Babel==2.13.1
+cattrs==23.1.2
+certifi==2023.7.22
+charset-normalizer==3.3.2
+click @ file:///home/conda/feedstock_root/build_artifacts/click_1692311806742/work
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+distro @ file:///home/conda/feedstock_root/build_artifacts/distro_1675116244235/work
+docutils==0.20.1
+esbonio==0.16.2
+exceptiongroup @ file:///home/conda/feedstock_root/build_artifacts/exceptiongroup_1692026125334/work
+flake8==6.1.0
+Flask @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/flask_1699241060066/work
+h11 @ file:///home/conda/feedstock_root/build_artifacts/h11_1664132893548/work
+h2 @ file:///home/conda/feedstock_root/build_artifacts/h2_1634280454336/work
+hpack==4.0.0
+httpcore @ file:///home/conda/feedstock_root/build_artifacts/httpcore_1699629103338/work
+httpx @ file:///home/conda/feedstock_root/build_artifacts/httpx_1699030327261/work
+hyperframe @ file:///home/conda/feedstock_root/build_artifacts/hyperframe_1619110129307/work
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1663625384323/work
+imagesize==1.4.1
+itsdangerous @ file:///home/conda/feedstock_root/build_artifacts/itsdangerous_1648147185463/work
+Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1654302431367/work
+lsprotocol==2023.0.0b1
+MarkupSafe @ file:///Users/runner/miniforge3/conda-bld/markupsafe_1695367646089/work
+mccabe==0.7.0
+openai @ file:///home/conda/feedstock_root/build_artifacts/openai_1699656821795/work
+packaging==23.2
+platformdirs==4.0.0
+pycodestyle==2.11.1
+pydantic @ file:///home/conda/feedstock_root/build_artifacts/pydantic_1699947534122/work
+pydantic_core @ file:///Users/runner/miniforge3/conda-bld/pydantic-core_1699546234988/work
+pyflakes==3.1.0
+pygls==1.1.2
+Pygments==2.16.1
+pyspellchecker==0.7.2
+requests==2.31.0
+setuptools==68.2.2
+sniffio @ file:///home/conda/feedstock_root/build_artifacts/sniffio_1662051266223/work
+snowballstemmer==2.2.0
+Sphinx==7.2.6
+sphinxcontrib-applehelp==1.0.7
+sphinxcontrib-devhelp==1.0.5
+sphinxcontrib-htmlhelp==2.0.4
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.6
+sphinxcontrib-serializinghtml==1.1.9
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1691671248568/work
+typeguard==4.1.5
+typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1695040754690/work
+urllib3==2.1.0
+Werkzeug @ file:///home/conda/feedstock_root/build_artifacts/werkzeug_1698235201373/work
+wheel==0.41.3
