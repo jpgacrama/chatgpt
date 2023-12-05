@@ -47,6 +47,10 @@ def index():
             temperature=0.2,
         )
         fixed_code = fixed_code_completions.choices[0].message.content
-        return render_template("index.html",
-                       explanation=explanation,
-                       fixed_code=fixed_code)
+        return render_template("index.html", explanation=explanation, fixed_code=fixed_code)
+
+    # For GET requests, return a default response (you can modify this as needed)
+    return render_template("index.html", explanation="", fixed_code="")
+
+if __name__ == "__main__":
+    app.run()
