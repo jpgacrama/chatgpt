@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Code Bug Fixer</title>
+</head>
+<body>
+<div class="header">
+    <h1>Code Bug Fixer</h1>
+</div>
+<div class="header">
+    <h1>Code Bug Fixer</h1>
+</div>
+<form action="/" method="post">
+    <button class="submit-button" type="submit">Code Fix</button>
+    <div class="container">
+        <div class="left-column">
+            <textarea name="code" placeholder="Enter Code"></textarea>
+            <textarea name="error" placeholder="Enter Error">
+                </textarea>
+        </div>
+        <div class="right-column">
+            <textarea class="fixed-code" name="fixed-code"
+                placeholder="Fixed Code" readonly>{{ fixed_code }}
+                </textarea>
+            <textarea class="explanation" name="explanation"
+                placeholder="Explanation" readonly>{{ explanation }}
+                </textarea>
+        </div>
+    </div>
+</form>
+</body>
+</html>
