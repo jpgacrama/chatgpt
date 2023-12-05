@@ -25,7 +25,7 @@ def index():
         prompt = (f"Explain the error in this code without fixing it:"
                   f"\n\n{code}\n\nError:\n\n{error}")
         model_engine = "text-davinci-003"
-        explanation_completions = client.chat.completions.create(
+        explanation_completions = client.completions.create(
             model=model_engine,
             prompt=prompt,
             max_tokens=1024,
@@ -33,12 +33,12 @@ def index():
             stop=None,
             temperature=0.2,
         )
-        explanation = explanation_completions.choices[0].message.content
+        explanation = explanation_completions.choices[0].text
         fixed_code_prompt = (f"Fix this code: \n\n{code}\n\nError:\n\n{error}."
             f" \n Respond only with the fixed code."
         )
 
-        fixed_code_completions = client.chat.completions.create(
+        fixed_code_completions = client.completions.create(
             model=model_engine,
             prompt=fixed_code_prompt,
             max_tokens=1024,
@@ -46,7 +46,7 @@ def index():
             stop=None,
             temperature=0.2,
         )
-        fixed_code = fixed_code_completions.choices[0].message.content
+        fixed_code = fixed_code_completions.choices[0].text
         return render_template("index.html", explanation=explanation, fixed_code=fixed_code)
 
     # For GET requests, return a default response (you can modify this as needed)
