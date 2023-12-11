@@ -5,6 +5,7 @@ import os
 import hashlib
 import sqlite3
 import stripe
+import config
 
 def clear_screen():
     # Clear the screen based on the operating system
@@ -22,7 +23,13 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    initialize_database()
+    fingerprint = get_fingerprint()
+    usage_counter = get_usage_counter(fingerprint)
     if request.method == "POST":
+        if usage_counter > config.FREE_LIMIT:
+            return render_template("payment.html")
+
         # Code Errr
         code = request.form["code"]
         error = request.form["error"]
@@ -51,10 +58,14 @@ def index():
             temperature=0.2,
         )
         fixed_code = fixed_code_completions.choices[0].text
+        usage_counter += 1
+        print(usage_counter)
+        update_usage_counter(fingerprint, usage_counter)
         return render_template("index.html", explanation=explanation, fixed_code=fixed_code)
 
     # For GET requests, return a default response (you can modify this as needed)
     return render_template("index.html", explanation="", fixed_code="")
+
 
 def initialize_database():
     conn = sqlite3.connect('app.db')
@@ -89,6 +100,14 @@ def get_usage_counter(fingerprint):
         return 0
     else:
         return result[0]
+
+def update_usage_counter(fingerprint, usage_counter):
+    conn = sqlite3.connect('app.db')
+    c = conn.cursor()
+    c.execute('UPDATE users SET usage_counter=? WHERE fingerprint=?',
+                [usage_counter, fingerprint])
+    conn.commit()
+    conn.close()
 
 if __name__ == "__main__":
     app.run()
