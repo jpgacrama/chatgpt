@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <title>Payment</title>
+    <script>
+        const STRIPE_PUBLIC_KEY = "pk_test_51OL22RCh65rBuHD0kN7awYZ8fR5uWW6nGyaX54J0SVbt6GmSu8lSRI8QXNYKal1ii8x9LQIfU9fzr8Uafqj0aY2v00eXHO96YF";
+    </script>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Payment Options</h1>
+            <div class="columns">
+                <!-- Your existing card sections with modifications -->
+                <!-- ... -->
+
+                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            <p class="title">Annual Plan</p>
+                            <p class="subtitle">$50 per year</p>
+                            <p>This plan will give you unlimited access
+                                to the code explanation and fixing services every year.
+                                You will be charged $50 every year.</p>
+                        </div>
+                        <footer class="card_footer">
+                            <form action="/charge" method="post">
+                                <input type="hidden" name="plan" value="yearly">
+                                <input type="hidden" name="amount" value="5000">
+                                <script
+                                    src="https://checkout.stripe.com/checkout.js"
+                                    class="stripe-button"
+                                    data-key="${STRIPE_PUBLIC_KEY}"
+                                    data-amount="5000"
+                                    data-name="Yearly Plan"
+                                    data-description="$50 per month"
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto"
+                                    data-zip-code="false">
+                                </script>
+                            </form>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
