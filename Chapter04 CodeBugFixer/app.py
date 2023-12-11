@@ -65,5 +65,30 @@ def initialize_database():
     conn.commit()
     conn.close()
 
+def get_fingerprint():
+    browser = request.user_agent.browser
+    version = request.user_agent.version and float(
+        request.user_agent.version.split(".")[0])
+    platform = request.user_agent.platform
+    string = f"{browser}:{version}:{platform}"
+    fingerprint = hashlib.sha256(string.encode("utf-8")).hexdigest()
+    print(fingerprint)
+    return fingerprint
+
+def get_usage_counter(fingerprint):
+    conn = sqlite3.connect('app.db')
+    c = conn.cursor()
+    result = c.execute('SELECT usage_counter FROM users WHERE fingerprint=?', [fingerprint]).fetchone()
+    conn.close()
+    if result is None:
+        conn = sqlite3.connect('app.db')
+        c = conn.cursor()
+        c.execute('INSERT INTO users (fingerprint, usage_counter) VALUES ' '(?, 0)', [fingerprint])
+        conn.commit()
+        conn.close()
+        return 0
+    else:
+        return result[0]
+
 if __name__ == "__main__":
     app.run()
