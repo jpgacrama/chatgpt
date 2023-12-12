@@ -25,7 +25,9 @@ app = Flask(__name__)
 def index():
     initialize_database()
     fingerprint = get_fingerprint()
-    usage_counter = get_usage_counter(fingerprint)
+    # usage_counter = get_usage_counter(fingerprint)
+
+    usage_counter = config.FREE_LIMIT + 1
     if request.method == "POST":
         if usage_counter > config.FREE_LIMIT:
             return render_template("payment.html")
@@ -66,6 +68,15 @@ def index():
     # For GET requests, return a default response (you can modify this as needed)
     return render_template("index.html", explanation="", fixed_code="")
 
+@app.route("/charge", methods=["POST"])
+def charge():
+    amount = int(request.form["amount"])
+    plan = str(request.form["plan"])
+    customer = stripe.Customer.create(
+        email=request.form["stripeEmail"], source=request.form["stripeToken"])
+    charge = stripe.PaymentIntent.create(
+        customer=customer.id, amount=amount, currency="usd", description="App Charge" )
+    return render_template("charge.html", amount=amount, plan=plan)
 
 def initialize_database():
     conn = sqlite3.connect('app.db')
