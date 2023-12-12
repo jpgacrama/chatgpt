@@ -17,7 +17,7 @@ client = OpenAI(
     # Retrieve the API key from the environment variable
     api_key = os.environ.get('OPENAI_API_KEY')
 )
-stripe.api_key = os.environ.get('OPENAI_API_KEY')
+stripe.api_key = os.environ.get('STRIPE_TEST_KEY')
 
 app = Flask(__name__)
 
