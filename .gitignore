@@ -3,3 +3,5 @@ Chapter02 ChatGPTClone/config.py
 *.pyc
 
 .DS_Store
+
+*.db
