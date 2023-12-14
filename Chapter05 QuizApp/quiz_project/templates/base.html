@@ -1,4 +1,5 @@
 {% load static %}
+
 <html lang="en" data-bs-theme="auto">
 <head>
   <script src="/docs/5.3/assets/js/color-modes.js"></script>
@@ -9,13 +10,16 @@
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
   <!-- Custom styles for this template -->
   <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/quiz_style.css' %}">
 </head>
+
 <body>
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Quiz App</a>
     <div class="navbar-nav">
     </div>
   </header>
+
   <div class="container-fluid">
     <div class="row">
       <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-body-tertiary sidebar collapse">
@@ -36,6 +40,21 @@
           </ul>
         </div>
       </nav>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        {% block content %}
+          <h1>Create a Quiz</h1>
+          <form method="post" action="">
+            {% csrf_token %}
+            <textarea name="text" rows="5" cols="50" placeholder="Enter some text..."></textarea>
+            <br>
+            <input type="submit" value="Generate Questions">
+          </form>
+
+          {% if questions %}
+            <h2>Generated Questions:</h2>
+          {% endif %}
+        {% endblock %}
+      </main>
     </div>
   </div>
 </body>
