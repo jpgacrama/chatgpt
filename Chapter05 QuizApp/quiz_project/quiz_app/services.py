@@ -9,11 +9,11 @@ client = OpenAI(
 def generate_questions(text):
     # Define your prompt for generating questions
     prompt = (
-        f"Create a practice test with multiple choice questions "
-        f"on the following text:\n{text}\n\n"
-        f"Each question should be on a different line. Each "
-        f"question should have 4 possible answers. "
+        f"Create a practice test with multiple choice questions on the following text:\n{text}\n\n"
+        f"Each question should be on a different line. Each question should have 4 possible answers."
         f"Under the possible answers, we should have the correct answer."
+        f"The Answer should be written as Answer: then write the answer to the question"
+        f"There should be a total of four questions."
     )
 
     # Generate questions using the ChatGPT API

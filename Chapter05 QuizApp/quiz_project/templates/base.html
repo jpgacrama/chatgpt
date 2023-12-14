@@ -52,6 +52,7 @@
 
           {% if questions %}
             <h2>Generated Questions:</h2>
+                {{ questions|linebreaks }}
           {% endif %}
         {% endblock %}
       </main>
