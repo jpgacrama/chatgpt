@@ -5,7 +5,6 @@ import os
 import hashlib
 import sqlite3
 import stripe
-import config
 
 def clear_screen():
     # Clear the screen based on the operating system
