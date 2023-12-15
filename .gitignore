@@ -7,3 +7,5 @@ Chapter02 ChatGPTClone/config.py
 *.db
 
 *.sqlite3
+
+test_*.txt
